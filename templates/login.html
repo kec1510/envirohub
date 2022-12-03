@@ -1,0 +1,29 @@
+{% extends "layout.html" %}
+{% from "_formhelpers.html" import render_field %}
+
+{% block title %}
+    Login
+{% endblock %}
+
+{% block main %}
+    <div class="mb-3">
+        <h1>Log In to EnviroHub</h1>
+        <br>
+        <form action='/login' method='post'>
+            <div class="form-group">
+                <dl>
+                    {{ render_field(log_form.username) }}
+                </dl>
+            </div>
+            <div class="form-group">
+                <dl>
+                    {{ render_field(log_form.password) }}
+                </dl>
+            </div>
+            <button type='submit' class='btn btn-primary' value='Login'>Login</button>
+        </form>
+        <br>
+        <p>Don't have an account yet? Register <span><a href="/register">here</a></span>.</p>
+    </div>
+
+{% endblock %}

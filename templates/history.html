@@ -1,0 +1,35 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    History
+{% endblock %}
+
+{% block main %}
+    <div class="container-fluid px-4">
+        <h1>Forecast Query History</h1>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th scope="col">Datetime</th>
+                    <th scope="col">Latitude</th>
+                    <th scope="col">Longitude</th>
+                    <th scope="col">Temperature</th>
+                    <th scope="col">Weather</th>
+                    <th scope="col">Air Quality Index</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for row in data %}
+                <tr>
+                    <td>{{ row['datetime']}} </td>
+                    <td>{{ row['lat']}} </td>
+                    <td>{{ row['lon']}} </td>
+                    <td>{{ row['temp']}} </td>
+                    <td>{{ row['weather']}} </td>
+                    <td>{{ row['aqi']}} </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+{% endblock %}

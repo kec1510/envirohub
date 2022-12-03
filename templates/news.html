@@ -1,0 +1,24 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    News
+{% endblock %}
+
+{% block main %}
+    <div class="mb-3">
+        <h1>Get Latest Climate News</h1>
+        <br>
+        <form action='/news' method='post'>
+            <div class="form-group">
+                <input autocomplete="off" autofocus class="form-control mx-auto w-auto" id="search_q" name="search_q" placeholder="Search the latest news..." type="text">
+            </div>
+            <br>
+            <div class="form-group">
+                <button type='submit' class="btn btn-primary" value='News'>Get Headlines</button>
+            </div>
+        </form>
+        <br>
+        <p>Headlines provided by <span><a href="https://newsapi.org/">NewsAPI</a></span> and <span><a href="https://www.nytimes.com/">The New York Times</a></span></p>
+    </div>
+
+{% endblock %}

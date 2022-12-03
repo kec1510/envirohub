@@ -84,6 +84,17 @@ ipython_config.py
 
 # virtual environment
 .envirohub/
+
+# web app templates
+bootstrap-template/
+
+# flask
+flask_session/
+
+# db setup
+schema.sql
+init_db.py
+
 # pyenv
 #   For a library or package, you might want to ignore these files since the code is
 #   intended to run in multiple environments; otherwise, check them in:

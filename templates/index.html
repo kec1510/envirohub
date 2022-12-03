@@ -1,0 +1,120 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Index
+{% endblock %}
+
+{% block main %}
+    <div class="container-fluid px-4">
+        <div class="row">
+            <h1 class="mt-4"><span><img src='static/e_hub_leaf.png' alt='green-leaf' height="80px"></span>EnviroHub Dashboard <span><img src='static/e_hub_leaf.png' alt='green-leaf' height="80px"></span></h1>
+        </div>
+        <br>
+        <div class="row">
+            <div class="col-xl-3 col-md-6">
+                <div class="card bg-primary text-white mb-4">
+                    <div class="card-body">
+                        <h3>Temperature: Cambridge, MA</h3>
+                        <h4>{{ data['Temperature'] }}</h4>
+                    </div>
+                    <div class="card-footer d-flex align-items-center justify-content-between">
+                        <a class="small text-white stretched-link" href="/forecasts">Get Temperature By Area</a>
+                        <div class="small text-white"><i class="fas fa-angle-right"></i></div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-3 col-md-6">
+                <div class="card bg-warning text-white mb-4">
+                    <div class="card-body">
+                        <h3>Weather: Cambridge, MA</h3>
+                        <h4>{{ data['Weather'] }}</h4>
+                    </div>
+                    <div class="card-footer d-flex align-items-center justify-content-between">
+                        <a class="small text-white stretched-link" href="/forecasts">Get Weather By Area</a>
+                        <div class="small text-white"><i class="fas fa-angle-right"></i></div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-3 col-md-6">
+                <div class="card bg-success text-white mb-4">
+                    <div class="card-body">
+                        <h3>Air Quality Index: Cambridge, MA</h3>
+                        <h4>{{ data['AQI_desc'] }} ({{ data['Air Quality Index'] }})</h4>
+                    </div>
+                    <div class="card-footer d-flex align-items-center justify-content-between">
+                        <a class="small text-white stretched-link" href="/forecasts">Get Air Quality By Area</a>
+                        <div class="small text-white"><i class="fas fa-angle-right"></i></div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-3 col-md-6">
+                <div class="card bg-danger text-white mb-4">
+                    <div class="card-body">
+                        <h3>Pollutant Concentrations: Cambridge, MA (μg/m^3)</h3>
+                        <table class="table text-white" >
+                            <thead>
+                                <tr>
+                                    <th scope="col">CO</th>
+                                    <th scope="col">NO</th>
+                                    <th scope="col">NO2</th>
+                                    <th scope="col">O3</th>
+                                    <th scope="col">SO2</th>
+                                    <th scope="col">PM 2.5</th>
+                                    <th scope="col">PM 10</th>
+                                    <th scope="col">NH3</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                {% for row in data['Pollutants'] %}
+                                    <td scope="row">{{ row['conc']}} </td>
+                                {% endfor %}
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="card-footer d-flex align-items-center justify-content-between">
+                        <a class="small text-white stretched-link" href="/forecasts">Get Pollutant Concentrations By Area</a>
+                        <div class="small text-white"><i class="fas fa-angle-right"></i></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card mb-4">
+            <div class="card-header">
+                <i class="fas fa-table me-1"></i>
+                EnviroHub: Latest News
+            </div>
+            <div class="card-body">
+                <table id="datatablesSimple" class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th scope="col">Article</th>
+                            <th scope="col">URL</th>
+                            <th scope="col">Date Published</th>
+                            <th scope="col">Source</th>
+                        </tr>
+                    </thead>
+                    <tfoot>
+                        <tr>
+                            <th>Article</th>
+                            <th>URL</th>
+                            <th>Date Published</th>
+                            <th>Source</th>
+                        </tr>
+                    </tfoot>
+                    <tbody>
+                        {% for row in article_lst %}
+                        <tr>
+                            <th scope="row" width="300">{{ row['Headline'] }}</th>
+                            <td>{% filter urlize %}{{ row['URL'] }}{% endfilter %}</td>
+                            <td>{{ row['Datetime'] }}</td>
+                            <td>{{ row['Source'] }}</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,31 @@
+{% extends "layout.html" %}
+{% from "_formhelpers.html" import render_field %}
+
+{% block title %}
+    Register
+{% endblock %}
+
+{% block main %}
+    <div class="mb-3">
+        <h1>Register for EnviroHub</h1>
+        <p>
+            Note: Usernames must be between 6 and 25 characters. 
+            Passwords must be at least 10 characters.
+        </p>
+        <br>
+        <form action='/register' method='post'>
+            <div class="form-group">
+                <dl>
+                    {{ render_field(reg_form.username) }}
+                    {{ render_field(reg_form.email) }}
+                    {{ render_field(reg_form.password) }}
+                    {{ render_field(reg_form.confirm) }}
+                </dl>
+            </div>
+            <button type='submit' class='btn btn-primary' value='Register'>Register</button>
+        </form>
+        <br>
+        <p>Already have an account? Log in <span><a href="/login">here</a></span>.</p>
+    </div>
+
+{% endblock %}

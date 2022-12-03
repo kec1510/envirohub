@@ -1,0 +1,73 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Forecast Results
+{% endblock %}
+
+{% block main %}
+    <div class="container-fluid px-4">
+        <div class="row">
+            <h1 class="mt-4">Weather and Air Quality for ({{ lat }}, {{ lon }})</h1>
+        </div>
+        <br>
+        <div class="row">
+            <div class="col-xl-3 col-md-6">
+                <div class="card bg-primary text-white mb-4">
+                    <div class="card-body">
+                        <h3>Temperature</h3>
+                        <h4>{{ data['Temperature'] }}</h4>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-3 col-md-6">
+                <div class="card bg-warning text-white mb-4">
+                    <div class="card-body">
+                        <h3>Weather</h3>
+                        <h4>{{ data['Weather'] }}</h4>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-3 col-md-6">
+                <div class="card bg-success text-white mb-4">
+                    <div class="card-body">
+                        <h3>Air Quality Index</h3>
+                        <h4>{{ data['AQI_desc'] }} ({{ data['Air Quality Index'] }})</h4>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-3 col-md-6">
+                <div class="card bg-danger text-white mb-4">
+                    <div class="card-body">
+                        <h3>Pollutant Concentrations (μg/m^3)</h3>
+                        <table class="table text-white" >
+                            <thead>
+                                <tr>
+                                    <th scope="col">CO</th>
+                                    <th scope="col">NO</th>
+                                    <th scope="col">NO2</th>
+                                    <th scope="col">O3</th>
+                                    <th scope="col">SO2</th>
+                                    <th scope="col">PM 2.5</th>
+                                    <th scope="col">PM 10</th>
+                                    <th scope="col">NH3</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                {% for row in data['Pollutants'] %}
+                                    <td scope="row">{{ row['conc']}} </td>
+                                {% endfor %}
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center mt-4">
+                <form>
+                    <button type="submit" class="btn btn-primary" formaction="/forecasts">New Forecast</button>
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock %}

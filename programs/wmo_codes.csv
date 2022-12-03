@@ -1,0 +1,29 @@
+code,description
+0,Clear sky
+1,Partly cloudy
+2,Partly cloudy
+3,Overcast
+45,Fog
+48,Fog (depositing rime)
+51,Continuous Drizzle (slight)
+53,Continuous Drizzle (moderate)
+55,Continuous Drizzle (heavy)
+56,Freezing Drizzle (slight)
+57,Freezing Drizzle (moderate-heavy)
+61,Continuous Rain (slight)
+63,Continuous Rain (moderate)
+65,Continuous Rain (heavy)
+66,Freezing Rain (slight)
+67,Freezing Rain (moderate-heavy)
+71,Snow (slight)
+73,Snow (moderate)
+75,Snow (heavy)
+77,Snow grains
+80,Rain showers (slight)
+81,Rain showers (moderate-heavy)
+82,Rain showers (violent)
+85,Snow Showers (slight) 
+86,Snow Showers (moderate-heavy)
+95,Thunderstorm (slight-moderate)
+96,Thunderstorm with Hail (slight-moderate)
+99,Thunderstorm with Hail (heavy)
