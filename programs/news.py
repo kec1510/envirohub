@@ -14,6 +14,7 @@ def nyt_articles(query):
     for i in range(3):
         nyt_article_search = req.get(f"https://api.nytimes.com/svc/search/v2/articlesearch.json?q={query}&sort=newest&page={i}&fq=news_desk:(\"Energy\" \"Environment\" \"Climate\")&api-key={NYT.api_key}")
         resp = nyt_article_search.json()
+
         for article in resp['response']['docs']:
             article_data = {
                 'Headline': article['headline']['main'],
@@ -25,7 +26,6 @@ def nyt_articles(query):
 
     return data
 
-# nyt_articles('climate change')
 def get_news(query):
     nyt_search = nyt_articles(query)
     newsapi_search = req.get(f"https://newsapi.org/v2/everything?q={query}&language=en&apiKey={NewsAPI.api_key}")

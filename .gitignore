@@ -92,7 +92,6 @@ bootstrap-template/
 flask_session/
 
 # db setup
-schema.sql
 init_db.py
 
 # pyenv
