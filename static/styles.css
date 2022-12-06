@@ -243,12 +243,12 @@ button:not(:disabled),
   margin-right: auto;
   margin-left: auto;
 }
-/* 
+
 @media (min-width: 576px) {
   .container-sm, .container {
     max-width: 540px;
   }
-} */
+}
 
 .row {
   --bs-gutter-x: 1.5rem;
@@ -745,7 +745,7 @@ button:not(:disabled),
 
   .col-xl-3 {
     flex: 0 0 auto;
-    width: 25%;
+    width: 50%;
   }
 
   .col-xl-4 {
@@ -1377,7 +1377,6 @@ button:not(:disabled),
      -moz-appearance: none;
           appearance: none;
   -webkit-print-color-adjust: exact;
-          color-adjust: exact;
 }
 .form-check-input[type=checkbox] {
   border-radius: 0.25em;
