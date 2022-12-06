@@ -21,6 +21,7 @@ Session(app)
 # Ensure templates are auto-reloaded
 app.config["TEMPLATES_AUTO_RELOAD"] = True
 
+# Latitude and Longitude coordinates for Cambridge, MA (for dashboard forecast)
 CAMBRIDGE_LAT, CAMBRIDGE_LON = 42.3736, -71.1097
 
 # Display custom 404 error page stored in the 404.html template
@@ -114,7 +115,7 @@ def forecasts():
         try:
             cur.execute("INSERT INTO fc_history (user_id, lat, lon, temp, weather, aqi) VALUES (?, ?, ?, ?, ?, ?)", 
                        (user_id, lat_input, lon_input, results['Temperature'], results['Weather'], results['Air Quality Index']))
-        except Exception as e:
+        except:
             return render_template('400.html', message='Invalid forecast input. Please try again.')
        
         # Execute database insertion
