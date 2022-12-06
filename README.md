@@ -20,6 +20,6 @@ The Dashboard also contains a table of the latest news headlines along with thei
 
 To log out of your session, click the `logout` link in the navigation bar, which will redirect you to the `Login` page.
 
-<!-- ## EnviroHub Intro Video
+## EnviroHub Intro Video
 
-The short intro video for EnviroHub can be found [here](https://youtube.com). -->
+A short intro video for EnviroHub can be found [here](https://www.youtube.com/watch?v=Q1hSV7nxCbg).
