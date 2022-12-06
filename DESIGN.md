@@ -38,6 +38,8 @@ In `app.py`, the `/forecast` route accepts both GET and POST requests. Upon a GE
 
 I implemented the `History` page by using the `sqlite3` Python package to select relevant forecast data from the `fc_history` table in the `envirohub.db` SQLite database. I then passed this data into the `history.html` template.
 
+In `app.py`, the `/history` route accepts only GET requests, upon which `/history` displays the `history.html` template containing a table of the current user's past forecasts.
+
 ### News Functionality
 
 The implementation of the news search functionality can be found in `programs/news.py`. The `news.py` file includes a `nyt_articles` function which takes in a `query` parameter and a `get_news` function which also takes in a `query` parameter. For these functions, I used the `requests` library to call The New York Times' [Article Search API](https://developer.nytimes.com/docs/articlesearch-product/1/overview) and [NewsAPI](https://newsapi.org/docs) respectively. These functions enable the custom search feature found on EnviroHub's `News` page, where users can generate their own news results by a desired search term.
@@ -45,6 +47,8 @@ The implementation of the news search functionality can be found in `programs/ne
 I decided to include two separate functions because I was working with two separate APIs that generated two different response bodies. Since the keys and values associated with the information I wanted to extract for each article differed between these APIs, I decided it would be best to compartmentalize the data extraction process into two functions.
 
 The `get_news` function ultimately synthesizes the outputs from the two APIs to provide EnviroHub users with the following information on each news article: its headline, URL, the date it was published, and its source.  I passed this data into the `index.html` and `news_results.html` templates for the Dashboard and custom news search results respectively. I used Jinja2's `urlize` function to make all articles' URLs clickable when displayed on the platform.
+
+In `app.py`, the `/news` route accepts both GET and POST requests. Upon a GET request, `/news` displays the `news.html` template containing a simple form with a field to enter a search query to generate news articles. Upon a POST request, `/news` displays the `news_results.html` template containing the search results. The platform will throw an error if the query input is empty or otherwise invalid.
 
 ### Additional Design Choices
 
