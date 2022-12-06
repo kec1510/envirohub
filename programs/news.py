@@ -1,8 +1,7 @@
-from bs4 import BeautifulSoup
 import requests as req
 
 import datetime as dt
-from datetime import datetime, date
+from datetime import date
 from programs.keys import NYT, NewsAPI
 
 today = date.today().strftime("%Y%m%d")

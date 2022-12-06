@@ -1,9 +1,8 @@
-from bs4 import BeautifulSoup
 import requests as req
 import pandas as pd
 
 import datetime as dt
-from datetime import datetime, date
+from datetime import date
 from programs.keys import OpenWeather
 
 today = date.today()
@@ -37,5 +36,3 @@ def weather_aq_forecast(lat, lon):
         # 'PM 2.5': f"{curr_aq['components']['pm2_5']} μg/m^3"
     }
     return data
-
-# print(weather_aq_forecast(cambridge_lat, cambridge_lon))
